@@ -85,6 +85,9 @@ var ContentEditable = React.createClass({
   },
 
   componentDidUpdate: function() {
+    // force HTML update
+    ReactDOM.findDOMNode(this).
+
     if (!this.props.editing && !this.props.html) {
       this.props.onChange('')
     }
@@ -122,8 +125,6 @@ var ContentEditable = React.createClass({
     // set 'div' as our default tagname
     tagName = tagName || 'div';
 
-    var content = this.props.html;
-
     // return our newly created element
     return React.createElement(tagName, {
       tabIndex: 0,
@@ -142,7 +143,7 @@ var ContentEditable = React.createClass({
       onInput: this.onInput,
       onKeyUp: this.onKeyUp,
       dangerouslySetInnerHTML: {
-        __html : this.props.placeholder ? this.props.placeholderText : content
+        __html : this.props.placeholder ? this.props.placeholderText : this.props.html
       }
     });
   },
