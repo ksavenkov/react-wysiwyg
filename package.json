@@ -39,7 +39,7 @@
     "lodash": "^3.10.1",
     "nightwatch": "^0.7.9",
     "phantomjs": "^1.9.17",
-    "react": "^0.13.0",
+    "react": "^0.14.2",
     "watchify": "^3.3.1"
   },
   "dependencies": {
