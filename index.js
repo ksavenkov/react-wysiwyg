@@ -85,8 +85,11 @@ var ContentEditable = React.createClass({
   },
 
   componentDidUpdate: function() {
-    // force HTML update
-    ReactDOM.findDOMNode(this).
+
+    // force html update
+    if (this.props.html !== ReactDOM.findDOMNode(this).innerHTML) {
+      ReactDOM.findDOMNode(this).innerHTML = this.props.html;
+    }
 
     if (!this.props.editing && !this.props.html) {
       this.props.onChange('')
